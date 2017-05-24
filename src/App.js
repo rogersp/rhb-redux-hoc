@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import Layout from './Layout';
-import Counter from './Counter';
+//import Counter from './Counter';
+import { withPlainHoc, withReduxConnectedHoc } from './HOC';
+import NumberDisplay from './NumberDisplay';
+
+const NumberDisplayPlain = withPlainHoc(NumberDisplay);
+const NumberDisplayReduxConnected = withReduxConnectedHoc(NumberDisplay);
 
 // If you use React Router, make this component
 // render <Router> with your routes. Currently,
@@ -11,8 +16,9 @@ import Counter from './Counter';
 export default class App extends Component {
   render() {
     return (
-      <Layout>
-        <Counter />
+      <Layout>        
+        <NumberDisplayPlain />
+        <NumberDisplayReduxConnected />
       </Layout>
     );
   }
