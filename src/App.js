@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
+import { withPlainHoc, withReduxConnectedHoc } from './HOC';
+import NumberDisplay from './NumberDisplay';
 
-export default class App extends Component {
+const NumberDisplayPlain = withPlainHoc(NumberDisplay);
+const NumberDisplayReduxConnected = withReduxConnectedHoc(NumberDisplay);
+
+export default class App extends Component {  
   render() {
     return (
-      <h1>Hello, world.</h1>
+      <div>
+        <h1>Hello, world.</h1>
+        <NumberDisplayPlain />
+        <NumberDisplayReduxConnected />
+      </div>
     );
   }
 }
+
